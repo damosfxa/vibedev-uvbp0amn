@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laundry Load Planner Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/style.css?v=3">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="header-content">
+        <div>
+          <h1>Laundry Planner</h1>
+          <p class="subtitle">Sort and plan your laundry runs effortlessly.</p>
+        </div>
+        <div class="stats-board">
+          <div class="stat-item">
+            <span class="stat-label">Total Items</span>
+            <span class="stat-value" id="totalItemsEl">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Loads Ready</span>
+            <span class="stat-value highlight" id="totalLoadsEl">0</span>
+          </div>
+        </div>
+      </div>
+      <div class="global-actions">
+        <button id="clearDoneBtn" class="btn-danger" disabled>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+          Clear Done Loads
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="add-section">
+        <form id="addForm" class="add-form">
+          <input type="text" id="itemName" placeholder="e.g. Favorite T-Shirt" autocomplete="off" maxlength="50" required>
+          <select id="itemCategory" required>
+            <option value="" disabled selected>Select Category</option>
+            <option value="whites">Whites</option>
+            <option value="lights">Lights</option>
+            <option value="darks">Darks</option>
+            <option value="delicates">Delicates</option>
+            <option value="heavy-duty">Heavy-Duty</option>
+          </select>
+          <button type="submit" class="btn-primary">Add Item</button>
+        </form>
+        
+        <div class="quick-tags-container">
+          <span class="tags-label">Quick Add:</span>
+          <div id="quickTags" class="quick-tags"></div>
+        </div>
+      </section>
+
+      <section class="categories-grid" id="categoriesGrid">
+        <!-- Category cards will be injected here -->
+      </section>
+    </main>
+  </div>
+
+  <script src="src/utils.js?v=3"></script>
+  <script src="src/logic.js?v=3"></script>
+  <script src="src/app.js?v=3"></script>
+</body>
+</html>
